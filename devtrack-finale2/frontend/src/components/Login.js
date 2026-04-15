@@ -39,7 +39,7 @@ const Login = ({ setUser, switchToSignup, darkMode, toggleDarkMode }) => {
             ⚡
           </div>
           <h1>Dev<span>Track</span></h1>
-          <p>// CS Skill Tracker</p>
+          <p>CS Skill Tracker</p>
         </div>
 
         {error && <div className="error-msg">{error}</div>}

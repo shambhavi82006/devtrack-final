@@ -89,7 +89,15 @@ const Dashboard = ({ user, setUser }) => {
       <div className="dashboard-header">
         <div className="dashboard-title">
           <h2>Hello, <span>{user.name.split(' ')[0]}</span> 👋</h2>
-          <p>// {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}{isWeekend ? ' — ⚡ Weekend 2× XP Active!' : ''}</p>
+          <p>
+  {new Date().toLocaleDateString('en-US', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  })}
+  {isWeekend ? ' — ⚡ Weekend 2× XP Active!' : ''}
+</p>
         </div>
         <div className="header-actions">
           <button className="btn-add" onClick={() => setShowAddModal(true)}>

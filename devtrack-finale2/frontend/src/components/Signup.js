@@ -42,7 +42,7 @@ const Signup = ({ setUser, switchToLogin, darkMode, toggleDarkMode }) => {
             ⚡
           </div>
           <h1>Dev<span>Track</span></h1>
-          <p>// Start your journey</p>
+          <p>Start your journey</p>
         </div>
 
         {error && <div className="error-msg">{error}</div>}
