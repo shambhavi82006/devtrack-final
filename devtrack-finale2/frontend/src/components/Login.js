@@ -1,6 +1,6 @@
 // frontend/src/components/Login.js
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../api';
 import DarkModeToggle from './DarkModeToggle';
 
 const Login = ({ setUser, switchToSignup, darkMode, toggleDarkMode }) => {
@@ -18,7 +18,7 @@ const Login = ({ setUser, switchToSignup, darkMode, toggleDarkMode }) => {
     setLoading(true);
     setError('');
     try {
-      const { data } = await axios.post('/api/auth/login', form);
+      const { data } = await api.post('/api/auth/login', form);
       if (data.success) setUser(data.user);
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed. Please try again.');

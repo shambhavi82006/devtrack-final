@@ -1,6 +1,6 @@
 // frontend/src/components/SkillCard.js
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from "../api";
 import ProgressBar from './ProgressBar';
 
 const getDaysLeft = (targetDate) => {
@@ -20,7 +20,7 @@ const SkillCard = ({ skill, onDelete, onProgressUpdate }) => {
     if (sliderVal === skill.progress) { setEditing(false); return; }
     setSaving(true);
     try {
-      const { data } = await axios.post('/api/progress/update', { skillId: skill._id, newProgress: sliderVal });
+      const { data } = await api.post('/api/progress/update', { skillId: skill._id, newProgress: sliderVal });
       if (data.success) {
         onProgressUpdate(data.skill, data.xpGained, data.leveledUp, data.user, data.newBadges, data.isWeekend);
         setEditing(false);
@@ -31,14 +31,14 @@ const SkillCard = ({ skill, onDelete, onProgressUpdate }) => {
 
   const handleDelete = async () => {
     if (!window.confirm(`Delete "${skill.name}"?`)) return;
-    try { await axios.delete(`/api/skills/${skill._id}`); onDelete(skill._id); }
+    try { await api.delete(`/api/skills/${skill._id}`); onDelete(skill._id); }
     catch (err) { console.error(err); }
   };
 
   const toggleSubtopic = async (idx) => {
     const updated = subtopics.map((s, i) => i === idx ? { ...s, completed: !s.completed } : s);
     setSubtopics(updated);
-    try { await axios.put(`/api/skills/${skill._id}`, { subtopics: updated }); }
+    try { await api.put(`/api/skills/${skill._id}`, { subtopics: updated }); }
     catch (err) { console.error(err); }
   };
 

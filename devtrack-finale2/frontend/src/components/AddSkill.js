@@ -1,6 +1,6 @@
 // frontend/src/components/AddSkill.js
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from "../api";
 
 const CATEGORIES = ['DSA', 'Web Dev', 'Database', 'OS & Networks', 'System Design', 'Machine Learning', 'DevOps', 'Mobile', 'Other'];
 const PRESETS = [
@@ -46,7 +46,7 @@ const AddSkill = ({ onClose, onSkillAdded }) => {
     if (!form.name.trim()) return setError('Skill name is required.');
     setLoading(true);
     try {
-      const { data } = await axios.post('/api/skills', {
+      const { data } = await api.post('/api/skills', {
         ...form,
         subtopics,
         resources,

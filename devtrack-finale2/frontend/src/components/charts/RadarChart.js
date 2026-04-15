@@ -2,12 +2,6 @@
 import React from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer, Tooltip } from 'recharts';
 
-const CATEGORY_COLORS = {
-  'DSA': '#ff6b6b', 'Web Dev': '#00f5ff', 'Database': '#ffd93d',
-  'OS & Networks': '#6bcb77', 'System Design': '#a78bfa',
-  'Machine Learning': '#f97316', 'DevOps': '#38bdf8', 'Mobile': '#fb7185', 'Other': '#94a3b8'
-};
-
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (

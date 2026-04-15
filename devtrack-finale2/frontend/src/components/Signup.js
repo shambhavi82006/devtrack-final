@@ -1,6 +1,6 @@
 // frontend/src/components/Signup.js
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../api';
 import DarkModeToggle from './DarkModeToggle';
 
 const Signup = ({ setUser, switchToLogin, darkMode, toggleDarkMode }) => {
@@ -21,7 +21,7 @@ const Signup = ({ setUser, switchToLogin, darkMode, toggleDarkMode }) => {
     setLoading(true);
     setError('');
     try {
-      const { data } = await axios.post('/api/auth/signup', form);
+      const { data } = await api.post('/api/auth/signup', form);
       if (data.success) setUser(data.user);
     } catch (err) {
       setError(err.response?.data?.message || 'Signup failed. Please try again.');

@@ -1,6 +1,6 @@
 // frontend/src/components/charts/WeeklySummary.js
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from "../../api";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 
 const CustomTooltip = ({ active, payload, label }) => {
@@ -22,7 +22,7 @@ const WeeklySummary = () => {
   useEffect(() => {
     const fetch = async () => {
       try {
-        const { data } = await axios.get('/api/progress/weekly-summary');
+        const { data } = await api.get('/api/progress/weekly-summary');
         if (data.success) setSummary(data.summary);
       } catch (e) { console.error(e); }
       finally { setLoading(false); }
