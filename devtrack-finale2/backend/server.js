@@ -13,10 +13,8 @@ connectDB();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-  origin: ["https://devtrack-final.vercel.app"],
+  origin: "https://devtrack-final.vercel.app",
   credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"],
 }));
   
 app.set("trust proxy", 1);
