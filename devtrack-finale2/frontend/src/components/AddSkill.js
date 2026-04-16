@@ -46,7 +46,7 @@ const AddSkill = ({ onClose, onSkillAdded }) => {
     if (!form.name.trim()) return setError('Skill name is required.');
     setLoading(true);
     try {
-      const { data } = await api.post('/api/skills', {
+      const { data } = await api.post('/skills', {
         ...form,
         subtopics,
         resources,

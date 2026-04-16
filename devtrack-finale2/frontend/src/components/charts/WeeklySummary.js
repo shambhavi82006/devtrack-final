@@ -22,7 +22,7 @@ const WeeklySummary = () => {
   useEffect(() => {
     const fetch = async () => {
       try {
-        const { data } = await api.get('/api/progress/weekly-summary');
+        const { data } = await api.get('/progress/weekly-summary');
         if (data.success) setSummary(data.summary);
       } catch (e) { console.error(e); }
       finally { setLoading(false); }

@@ -18,7 +18,7 @@ const Login = ({ setUser, switchToSignup, darkMode, toggleDarkMode }) => {
     setLoading(true);
     setError('');
     try {
-      const { data } = await api.post('/api/auth/login', form);
+      const { data } = await api.post('/auth/login', form);
       if (data.success) setUser(data.user);
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed. Please try again.');

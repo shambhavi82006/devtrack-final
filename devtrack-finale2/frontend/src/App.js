@@ -1,6 +1,6 @@
 // frontend/src/App.js
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from './api';
 import './styles.css';
 import Navbar from './components/Navbar';
 import Login from './components/Login';
@@ -28,7 +28,7 @@ function App() {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const { data } = await axios.get('/api/auth/me');
+        const { data } = await api.get('/auth/me');
         if (data.success) setUser(data.user);
       } catch {
         setUser(null);

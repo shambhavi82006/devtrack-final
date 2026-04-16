@@ -26,7 +26,7 @@ const Dashboard = ({ user, setUser }) => {
 
   const fetchSkills = useCallback(async () => {
     try {
-      const { data } = await api.get('/api/skills');
+      const { data } = await api.get('/skills');
       if (data.success) setSkills(data.skills);
     } catch (err) { console.error(err); }
     finally { setLoading(false); }

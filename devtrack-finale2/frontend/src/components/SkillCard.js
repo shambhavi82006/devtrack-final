@@ -20,7 +20,7 @@ const SkillCard = ({ skill, onDelete, onProgressUpdate }) => {
     if (sliderVal === skill.progress) { setEditing(false); return; }
     setSaving(true);
     try {
-      const { data } = await api.post('/api/progress/update', { skillId: skill._id, newProgress: sliderVal });
+      const { data } = await api.post('/progress/update', { skillId: skill._id, newProgress: sliderVal });
       if (data.success) {
         onProgressUpdate(data.skill, data.xpGained, data.leveledUp, data.user, data.newBadges, data.isWeekend);
         setEditing(false);
@@ -31,7 +31,7 @@ const SkillCard = ({ skill, onDelete, onProgressUpdate }) => {
 
   const handleDelete = async () => {
     if (!window.confirm(`Delete "${skill.name}"?`)) return;
-    try { await api.delete(`/api/skills/${skill._id}`); onDelete(skill._id); }
+    try { await api.delete(`/skills/${skill._id}`); onDelete(skill._id); }
     catch (err) { console.error(err); }
   };
 
