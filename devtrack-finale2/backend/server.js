@@ -13,7 +13,7 @@ connectDB();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-  origin:"https://devtrack-final-90lu3xgt5-812nezuko-8219s-projects.vercel.app",  // allow all origins temporarily
+  origin: "http://localhost:3002",  // ⚠️ YOUR FRONTEND PORT
   credentials: true
 }));
   
