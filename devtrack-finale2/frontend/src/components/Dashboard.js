@@ -1,5 +1,6 @@
 // frontend/src/components/Dashboard.js
 // temp changr
+// redploy trigger 1
 import React, { useState, useEffect, useCallback } from 'react';
 import SkillCard from './SkillCard';
 import AddSkill from './AddSkill';
@@ -67,7 +68,7 @@ const Dashboard = ({ user, setUser }) => {
     }
   };
   //fixing deploy
-  
+
 
   // Filter & search & sort
   const filteredSkills = skills
