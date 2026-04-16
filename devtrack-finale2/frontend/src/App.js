@@ -26,7 +26,7 @@ function App() {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const { data } = await api.get('/auth/me');
+        const { data } = await api.get('/api/auth/me');
         if (data.success) setUser(data.user);
       } catch {
         setUser(null);
