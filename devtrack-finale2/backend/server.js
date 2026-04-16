@@ -13,7 +13,7 @@ connectDB();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-  origin: "http://localhost:3002",  // ⚠️ YOUR FRONTEND PORT
+  origin: "http://localhost:3000",  // ⚠️ YOUR FRONTEND PORT
   credentials: true
 }));
   
