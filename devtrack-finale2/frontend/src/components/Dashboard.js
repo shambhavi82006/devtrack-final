@@ -8,6 +8,7 @@ import BadgesPanel from './BadgesPanel';
 import WeeklySummary from './charts/WeeklySummary';
 import SkillRadarChart from './charts/RadarChart';
 import ActivityHeatmap from './charts/ActivityHeatmap';
+import api from '../api';
 
 const XP_PER_LEVEL = 100;
 const CATEGORIES = ['All', 'DSA', 'Web Dev', 'Database', 'OS & Networks', 'System Design', 'Machine Learning', 'DevOps', 'Mobile', 'Other'];
@@ -25,7 +26,7 @@ const Dashboard = ({ user, setUser }) => {
 
   const fetchSkills = useCallback(async () => {
     try {
-      const { data } = await axios.get('/api/skills');
+      const { data } = await api.get('/api/skills');
       if (data.success) setSkills(data.skills);
     } catch (err) { console.error(err); }
     finally { setLoading(false); }
