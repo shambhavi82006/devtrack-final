@@ -13,11 +13,13 @@ connectDB();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-origin: "https://devtrack-final.vercel.app",
-  credentials: true
+  origin: ["https://devtrack-final.vercel.app"],
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 }));
   
-
+app.set("trust proxy", 1);
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/skills', require('./routes/skillRoutes'));
 app.use('/api/progress', require('./routes/progressRoutes'));
