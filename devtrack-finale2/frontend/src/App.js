@@ -8,8 +8,6 @@ import Signup from './components/Signup';
 import Dashboard from './components/Dashboard';
 import Loader from './components/Loader';
 
-axios.defaults.withCredentials = true;
-axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -40,7 +38,7 @@ function App() {
   }, []);
 
   const handleLogout = async () => {
-    try { await axios.post('/api/auth/logout'); setUser(null); }
+    try { await api.post('/auth/logout'); setUser(null); }
     catch (err) { console.error(err); }
   };
 
