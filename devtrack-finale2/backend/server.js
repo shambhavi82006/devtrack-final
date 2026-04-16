@@ -13,10 +13,7 @@ connectDB();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-origin: [
-    "http://localhost:3000",
-    "https://devtrack-final.vercel.app"
-  ],
+origin: "https://devtrack-final.vercel.app",
   credentials: true
 }));
   
