@@ -41,7 +41,6 @@ const signup = async (req, res) => {
   secure: true,
   sameSite: "None",
   path: "/",
-  domain: ".onrender.com"
 });
     res.status(201).json({ success: true, message: 'Account created successfully', user: formatUser(user) });
   } catch (error) {
@@ -66,7 +65,6 @@ const login = async (req, res) => {
   secure: true,
   sameSite: "None",
   path: "/",
-  domain: ".onrender.com"
 });
     res.json({ success: true, message: 'Logged in successfully', user: formatUser(user) });
   } catch (error) {
