@@ -36,7 +36,12 @@ const signup = async (req, res) => {
 
     const user = await User.create({ name, email, password });
     const token = generateToken(user._id);
-    res.cookie('devtrack_token', token, setCookieOptions());
+    res.cookie('devtrack_token', token, {
+  httpOnly: true,
+  secure: true,
+  sameSite: "None",
+  path: "/",
+});
     res.status(201).json({ success: true, message: 'Account created successfully', user: formatUser(user) });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
@@ -55,7 +60,12 @@ const login = async (req, res) => {
     }
 
     const token = generateToken(user._id);
-    res.cookie('devtrack_token', token, setCookieOptions());
+   res.cookie('devtrack_token', token, {
+  httpOnly: true,
+  secure: true,
+  sameSite: "None",
+  path: "/",
+});
     res.json({ success: true, message: 'Logged in successfully', user: formatUser(user) });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
