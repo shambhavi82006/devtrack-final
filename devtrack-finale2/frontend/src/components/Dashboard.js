@@ -1,6 +1,5 @@
 // frontend/src/components/Dashboard.js
 import React, { useState, useEffect, useCallback } from 'react';
-import axios from 'axios';
 import SkillCard from './SkillCard';
 import AddSkill from './AddSkill';
 import ProgressBar from './ProgressBar';
