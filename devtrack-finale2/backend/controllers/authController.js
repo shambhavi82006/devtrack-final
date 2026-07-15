@@ -38,8 +38,8 @@ const signup = async (req, res) => {
     const token = generateToken(user._id);
   res.cookie('devtrack_token', token, {
   httpOnly: true,
-  secure: false,
-  sameSite: "Lax",
+  secure: true,
+  sameSite: "None",
   path: "/"
 });
     res.status(201).json({ success: true, message: 'Account created successfully', user: formatUser(user) });
@@ -62,8 +62,8 @@ const login = async (req, res) => {
     const token = generateToken(user._id);
    res.cookie('devtrack_token', token, {
   httpOnly: true,
-  secure: false,
-  sameSite: "Lax",
+  secure: true,
+  sameSite: "None",
   path: "/"
 });
     res.json({ success: true, message: 'Logged in successfully', user: formatUser(user) });
