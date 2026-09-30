@@ -31,6 +31,15 @@ const userSchema = new mongoose.Schema({
     minlength: [6, 'Password must be at least 6 characters'],
     select: false
   },
+  resetPasswordToken: {
+  type: String,
+  select: false
+},
+
+resetPasswordExpires: {
+  type: Date,
+  select: false
+},
   googleId: { type: String, sparse: true },
   avatar: { type: String, default: '' },
   level: { type: Number, default: 1 },
@@ -44,6 +53,9 @@ const userSchema = new mongoose.Schema({
   badges: [badgeSchema],
   // Weekly summary email preference
   weeklyEmailEnabled: { type: Boolean, default: true },
+  // Password reset
+resetPasswordToken: { type: String, default: null },
+resetPasswordExpires: { type: Date, default: null },
   // Activity heatmap data: { "2024-01-15": xpGained }
   activityMap: { type: Map, of: Number, default: {} }
 }, { timestamps: true });
